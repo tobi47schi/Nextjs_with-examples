@@ -1,5 +1,4 @@
 import {useRouter} from 'next/router';
-import { Header } from '../../components/header';
 
 export const Dynamic = () => {
     const router = useRouter();
@@ -7,7 +6,6 @@ export const Dynamic = () => {
 
     return (
         <div>
-            <Header title="1 titel"></Header>
             Der Name ist {name}
         </div>
     )

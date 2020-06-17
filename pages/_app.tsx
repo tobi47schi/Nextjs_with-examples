@@ -5,12 +5,13 @@ import type { AppProps, AppContext } from 'next/app'
  
 import { SSRKeycloakProvider, Persistors } from '@react-keycloak/nextjs'
 import type { KeycloakCookies } from  '@react-keycloak/nextjs'
+import { Header } from '../components/header';
 
 
 const keycloakCfg = {
   realm: 'master',
   url: 'http://localhost:8080/auth',
-  clientId: 'testclient'
+  clientId: 'test'
 }
  
 interface InitialProps {
@@ -19,12 +20,15 @@ interface InitialProps {
  
 function MyApp({ Component, pageProps, cookies }: AppProps & InitialProps) {
   return (
-    <SSRKeycloakProvider
-      keycloakConfig={keycloakCfg}
-      persistor={Persistors.Cookies(cookies)}
-    >
-      <Component {...pageProps} />
-    </SSRKeycloakProvider>
+    <div>
+        <Header title="Super Header Title"></Header>
+        <SSRKeycloakProvider
+        keycloakConfig={keycloakCfg}
+        persistor={Persistors.Cookies(cookies)}
+        >
+        <Component {...pageProps} />
+        </SSRKeycloakProvider>
+    </div>
   )
 }
  

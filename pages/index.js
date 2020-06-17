@@ -29,8 +29,8 @@ const IndexPage = ({ keycloak }) => {
 
 
       {!keycloak.authenticated && (
-        <button type="button" onClick={() => keycloak.login()}>
-          Login
+        <button type="link" onClick={() => keycloak.login()}>
+          Login...
         </button>
       )}
       
